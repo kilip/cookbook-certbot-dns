@@ -6,10 +6,9 @@ addons:
     sources:
       - chef-current-xenial
       - chef-workstation
-cache:
-- bundler
-- apt
-
+before_script:
+- eval "$(chef shell-init bash)"
+- chef --version
 script:
 - chef exec rspec
 - kitchen verify
