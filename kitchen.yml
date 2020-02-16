@@ -12,14 +12,13 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-18.04
-  - name: centos-7
+- name: ubuntu-18.04
 
 suites:
-  - name: default
-    run_list:
-      - recipe[certbot::default]
-    verifier:
-      inspec_tests:
-        - test/integration/default
-    attributes:
+- name: default
+  run_list:
+  - recipe[certbot-dns::default]
+  verifier:
+    inspec_tests:
+    - test/integration/default
+  attributes:
