@@ -20,5 +20,7 @@ before_script:
 - chef --version
 
 script:
+- cookstyle
+- foodcritic
 - chef exec rspec
-- kitchen verify
+- kitchen test
