@@ -6,7 +6,7 @@
 
 require 'spec_helper'
 
-describe 'certbot::default' do
+describe 'certbot-dns::default' do
   context 'When all attributes are default, on Ubuntu 18.04' do
     # for a complete list of available platforms and versions see:
     # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
