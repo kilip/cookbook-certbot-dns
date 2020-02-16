@@ -13,7 +13,7 @@ cache:
 env:
   global:
   - CHEF_LICENSE=accept
-  - KITCHEN_YAML=kitchen.dokken.yml
+  - KITCHEN_LOCAL_YAML=kitchen.dokken.yml
 
 before_script:
 - eval "$(chef shell-init bash)"

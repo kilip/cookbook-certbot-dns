@@ -40,5 +40,5 @@ execute 'certbot' do
   -d #{domain}
   eos
   action :run
-  not_if { File.exist?(certfile) }
+  not_if { ::File.exist?(certfile) }
 end
