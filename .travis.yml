@@ -1,11 +1,13 @@
-env:
-- CHEF_LICENSE=accept
-
 addons:
   apt:
     sources:
       - chef-current-xenial
+    packages:
       - chef-workstation
+
+env:
+  - CHEF_LICENSE=accept
+        
 before_script:
 - eval "$(chef shell-init bash)"
 - chef --version
