@@ -16,8 +16,14 @@ platforms:
 
 suites:
 - name: default
+  attributes:
+    certbot:
+      domain: 'test.itstoni.com'
+      cloudflare:
+        email: <%= ENV['CLOUDFLARE_EMAIL'] %>
+        api_key: <%= ENV['CLOUDFLARE_API_KEY'] %>
   run_list:
-  - recipe[certbot-dns::default]
+  - recipe[test::default]
   verifier:
     inspec_tests:
     - test/integration/default

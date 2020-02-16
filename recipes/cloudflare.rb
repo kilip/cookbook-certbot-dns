@@ -23,11 +23,13 @@ template '/etc/certbot-dns-cloudflare.ini' do
   source 'cloudflare.ini.erb'
   owner 'root'
   group 'root'
-  mode '0755'
+  mode '0644'
   action :create
   variables param
+  sensitive true
 end
 
+certfile = "/etc/letsencrypt/live/#{domain}"
 execute 'certbot' do
   command <<-eos
   certbot certonly \
@@ -38,4 +40,5 @@ execute 'certbot' do
   -d #{domain}
   eos
   action :run
+  not_if { File.exist?(certfile) }
 end
