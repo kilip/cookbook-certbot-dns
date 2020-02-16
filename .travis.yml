@@ -5,6 +5,11 @@ addons:
     packages:
       - chef-workstation
 
+service: docker
+
+cache:
+- apt
+
 env:
   global:
   - CHEF_LICENSE=accept
