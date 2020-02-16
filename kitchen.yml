@@ -2,24 +2,28 @@
 driver:
   name: vagrant
   network:
-  - ["forwarded_port", {guest: 80, host: 8080}]
+  #- ["forwarded_port", {guest: 80, host: 8080}]
 
 provisioner:
   name: chef_zero
   always_update_cookbooks: true
-  
+
 verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-18.04
-  - name: centos-7
+- name: ubuntu-18.04
 
 suites:
-  - name: default
-    run_list:
-      - recipe[certbot::default]
-    verifier:
-      inspec_tests:
-        - test/integration/default
-    attributes:
+- name: default
+  attributes:
+    certbot:
+      domain: <%= ENV['CERTBOT_DOMAIN'] %>
+      cloudflare:
+        email: <%= ENV['CLOUDFLARE_EMAIL'] %>
+        api_key: <%= ENV['CLOUDFLARE_API_KEY'] %>
+  run_list:
+  - recipe[test::default]
+  verifier:
+    inspec_tests:
+    - test/integration/default

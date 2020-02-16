@@ -5,6 +5,8 @@ license 'MIT'
 description 'Creates letsencrypt certificate with dns challenges'
 version '0.1.0'
 chef_version '>= 14.0'
-
 issues_url 'https://github.com/kilip/cookbook-certbot-dns/issues'
 source_url 'https://github.com/kilip/cookbook-certbot-dns'
+
+supports 'ubuntu'
+supports 'centos'

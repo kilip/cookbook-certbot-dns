@@ -1,0 +1,20 @@
+---
+driver:
+  name: dokken
+  privileged: true
+  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
+  env: [CHEF_LICENSE=accept]
+
+transport:
+  name: dokken
+
+provisioner:
+  name: dokken
+
+platforms:
+- name: ubuntu-18.04
+  driver:
+    image: dokken/ubuntu-18.04
+    pid_one_command: /bin/systemd
+    intermediate_instructions:
+      - RUN /usr/bin/apt-get update

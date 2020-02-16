@@ -1,4 +1,3 @@
-# certbot
-
-TODO: Enter the cookbook description here.
+# certbot-dns
+Generate letsencrypt certificate using dns challenges.
 

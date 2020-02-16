@@ -1,0 +1,28 @@
+addons:
+  apt:
+    sources:
+      - chef-current-xenial
+    packages:
+      - chef-workstation
+
+services: docker
+
+cache:
+- bundler
+- apt
+- docker
+
+env:
+  global:
+  - CHEF_LICENSE=accept
+  - KITCHEN_LOCAL_YAML=kitchen.dokken.yml
+
+before_script:
+- eval "$(chef shell-init bash)"
+- chef --version
+
+script:
+- cookstyle
+- foodcritic .
+- chef exec rspec
+- kitchen test

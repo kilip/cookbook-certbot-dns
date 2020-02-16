@@ -13,7 +13,7 @@ describe 'certbot-dns::cloudflare' do
   end
 
   describe '~> should install dns cloud flare plugin' do
-    it { is_expected.to install_apt_package('python3-certbot-dns-cloudflare')}
+    it { is_expected.to install_apt_package('python3-certbot-dns-cloudflare') }
   end
 
   describe '~> should create credentials file' do
