@@ -26,7 +26,6 @@ template '/etc/certbot-dns-cloudflare.ini' do
   mode '0644'
   action :create
   variables param
-  sensitive true
 end
 
 certfile = "/etc/letsencrypt/live/#{domain}"

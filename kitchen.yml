@@ -18,7 +18,7 @@ suites:
 - name: default
   attributes:
     certbot:
-      domain: 'test.itstoni.com'
+      domain: <%= ENV['CERTBOT_DOMAIN'] %>
       cloudflare:
         email: <%= ENV['CLOUDFLARE_EMAIL'] %>
         api_key: <%= ENV['CLOUDFLARE_API_KEY'] %>
