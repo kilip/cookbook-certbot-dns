@@ -1,4 +1,6 @@
-language: ruby
+env:
+- CHEF_LICENSE=accept
+
 addons:
   apt:
     sources:
